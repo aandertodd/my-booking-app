@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${shows} and ${shows.size()}">No Shows</p>
+
+<table class="table">
+    <tr>
+        <th>Venue</th>
+        <th>Bands</th>
+        <!--<th>Category</th>-->
+    </tr>
+
+        <tr th:each="show : ${shows}">
+            <td th:text="${show.name}"></td>
+            <td th:text="${show.description}"></td>
+            <!--<td th:textshowsshow.category.name"}></td>-->
+    </tr>
+</table>
+<br />
+<a href="/shows/add">Add Show</a> ||
+<a href="/shows/delete">Delete Show (frown town)</a> ||
+
+</body>
+</html>

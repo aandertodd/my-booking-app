@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+    <div th:each="show : ${shows}" class="checkbox">
+        <input type="checkbox" name="ids" th:value="${show.id}" th:id="${show.id}"/>
+        <label th:for="${show.id}" th:text="${show.name}"></label>
+        <br />
+    </div>
+
+    <input type="submit" value="Delete Show" />
+</form>
+</body>
+</html>

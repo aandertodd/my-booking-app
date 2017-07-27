@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Default Title</title>
+</head>
+<body>
+
+<nav th:fragment="navigation">
+    <a href="/shows">Shows</a> |
+    <a href="/admin/login">Login</a> |
+    <a href="'/admin/signup">Sign up</a>
+
+</nav>
+
+</body>
+</html>
