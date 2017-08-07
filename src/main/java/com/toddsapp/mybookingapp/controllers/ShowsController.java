@@ -48,7 +48,6 @@ public class ShowsController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Show");
-            model.addAttribute("shows", showsDao.findAll());
             return "shows/add";
         }
 

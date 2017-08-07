@@ -8,7 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by margareticloud on 7/25/17.
  */
-@Repository
-@Transactional
+@Repository // tells spring this interface is a repository and it should manage it for us
+@Transactional //specifies that all methods should be sent one at a time?
+// dao = data access object
 public interface AdminDao extends CrudRepository<Admin, Integer> {
+
+    Admin findByAdminName(String adminName);
 }

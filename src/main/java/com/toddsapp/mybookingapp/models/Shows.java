@@ -24,7 +24,6 @@ public class Shows {
     @Size(min=3, max=100, message="Description must be at least 3 letters")
     private String description;
 
-
     public Shows(String name, String description){
         this.name = name;
         this.description = description;

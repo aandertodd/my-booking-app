@@ -2,15 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
+<h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method="post" th:object="${shows}">
-    <label th:for="name">Venue</label><br/>
-    <input class="form-control" th:field="${shows.name}" /><br/>
-    <span th:errors="${shows.name}" class="error"></span>
-    <input class="form-control" th:field="${shows.description}" />
-    <span th:errors="*{name}" class="error"></span>
+    <label th:for="name">Venue Name</label><br/>
+    <input class="form-control" th:field="*{name}" />
+    <span th:errors="*{name}" class="error"></span><br/>
+    <label th:for="description">Bands Playing</label><br/>
+    <textarea class="form-control" th:field="*{description}"></textarea>
+    <span th:errors="*{description}" class="error"></span><br/>
     <input type="submit" value="Add Show" />
 </form>
 </body>
