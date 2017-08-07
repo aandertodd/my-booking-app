@@ -12,18 +12,18 @@
     <tr>
         <th>Venue</th>
         <th>Bands</th>
-        <!--<th>Category</th>-->
     </tr>
 
-        <tr th:each="show : ${shows}">
+        <tr th:each="show : ${shows}" th:unless="${shows == null}" >
             <td th:text="${show.name}"></td>
             <td th:text="${show.description}"></td>
-            <!--<td th:textshowsshow.category.name"}></td>-->
+            <td th:text="${show.venue}"></td>
     </tr>
 </table>
 <br />
 <a href="/shows/add">Add Show</a> ||
-<a href="/shows/delete">Delete Show</a> ||
+
+<a href="/shows/delete" th:unless="${session.admin == null}">Delete Show ||</a>
 
 </body>
 </html>

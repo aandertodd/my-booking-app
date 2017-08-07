@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -19,6 +17,7 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping("shows")
+@SessionAttributes("shows")
 public class ShowsController {
 
     @Autowired
@@ -56,7 +55,9 @@ public class ShowsController {
     }
 
     @RequestMapping(value = "delete")
-    public String displayDeleteShow(Model model){
+    public String displayDeleteShow(Model model, HttpSession session){
+
+        session.setAttribute("mySessionAttrbute", "admin");
         model.addAttribute("shows", showsDao.findAll());
         model.addAttribute("title", "Delete Show");
 
