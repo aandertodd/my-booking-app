@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -17,8 +18,7 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping("shows")
-@SessionAttributes("shows")
-public class ShowsController {
+public class ShowsController extends AdminController {
 
     @Autowired
     private AdminDao adminDao;
@@ -43,28 +43,29 @@ public class ShowsController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String addShow(Model model, @ModelAttribute @Valid Shows newShow, Errors errors){
+    public String addShow(Model model, @ModelAttribute @Valid Shows newShow, Errors errors, HttpServletRequest request){
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Show");
             return "shows/add";
         }
-
+        getAdminFromSession(request.getSession());
         showsDao.save(newShow);
         return "redirect:";
     }
 
     @RequestMapping(value = "delete")
-    public String displayDeleteShow(Model model, HttpSession session){
+    public String displayDeleteShow(Model model, HttpSession session) {
 
-        session.setAttribute("mySessionAttrbute", "admin");
         model.addAttribute("shows", showsDao.findAll());
         model.addAttribute("title", "Delete Show");
 
-        return "shows/delete";
-    }
+            return "shows/delete";
+        }
+
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String deleteShow(@RequestParam int[] ids){
+
 
         for (int id : ids){
             showsDao.delete(id);

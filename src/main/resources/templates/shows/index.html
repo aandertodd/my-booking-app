@@ -4,8 +4,14 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation">
 
+
+</nav>
+<a href="/shows/add">Add Show</a>
+<div th:if="${admin}">
+<a href="/shows/delete">Delete Show</a>
+</div>
 <p th:unless="${shows} and ${shows.size()}">No Shows</p>
 
 <table class="table">
@@ -20,10 +26,5 @@
             <td th:text="${show.venue}"></td>
     </tr>
 </table>
-<br />
-<a href="/shows/add">Add Show</a> ||
-
-<a href="/shows/delete" th:unless="${session.admin == null}">Delete Show ||</a>
-
 </body>
 </html>

@@ -13,13 +13,21 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("admin")
-public class AdminContoller extends AbstractController {
+public class AdminController extends AbstractController {
+
+//    @RequestMapping(value="")
+//    public String index(Model model, HttpServletRequest request){
+//        model.addAttribute("title", "Welcome");
+//        getAdminFromSession(request.getSession());
+//        return "admin/index";
+//    }
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String signup(Model model) {
@@ -48,7 +56,7 @@ public class AdminContoller extends AbstractController {
         adminDao.save(newAdmin);
         setAdminInSession(request.getSession(), newAdmin);
 
-        return "redirect:/shows";
+        return "/admin/index";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -75,7 +83,7 @@ public class AdminContoller extends AbstractController {
 
         setAdminInSession(request.getSession(), admin);
 
-        return "redirect:/shows";
+        return "/admin/index";
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
