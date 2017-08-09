@@ -7,19 +7,21 @@
 <body>
 
 <nav th:fragment="navigation">
-    <a href="/shows">Shows |</a>
-    <a href="/venue">Venues</a>
-
-    <div th:if="${admin}">
-        <span th:text="${admin.adminName}"></span>
-    <a href="/admin/logout">Log out</a>
-
-    </div>
-
     <div th:if="!${admin}">
         <a href="/admin/login">Login</a>
         <a href="/admin/signup">| Sign up</a>
     </div>
+    <div th:if="${admin}">
+        <span th:text="${admin.adminName}"></span>
+        <a href="/admin/logout">Log out</a>
+    </div>
+    <div>
+        <a href="/shows">Shows |</a>
+        <a href="/venue">Venues</a>
+    </div>
+
+
+
 </nav>
 
 </body>

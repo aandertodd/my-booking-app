@@ -7,12 +7,13 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method="post" th:object="${shows}">
-    <label th:for="name">Venue</label><br/>
-    <select name="name">
+    <label th:for="venue">Venue</label><br/>
+    <select name="venueId">
         <option th:each="venue : ${venues}"
                 th:text="${venue.name}"
                 th:value="${venue.id}"></option>
     </select>
+
     <span th:errors="*{name}" class="error"></span><br/>
     <label th:for="description">Bands Playing</label><br/>
     <textarea class="form-control" th:field="*{description}"></textarea>

@@ -17,12 +17,12 @@ public class Venue {
     @GeneratedValue
     private int id;
 
-    @NotNull
-    @Size(min=3, max=15)
+//    @NotNull
+//    @Size(min=3, max=15)
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "venue_id")
     private List<Shows> shows = new ArrayList<>();
 
     public Venue(){}

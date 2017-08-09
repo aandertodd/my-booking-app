@@ -22,12 +22,12 @@ import javax.validation.Valid;
 @RequestMapping("admin")
 public class AdminController extends AbstractController {
 
-//    @RequestMapping(value="")
-//    public String index(Model model, HttpServletRequest request){
-//        model.addAttribute("title", "Welcome");
-//        getAdminFromSession(request.getSession());
-//        return "admin/index";
-//    }
+    @RequestMapping(value="index")
+    public String index(Model model, HttpServletRequest request){
+        model.addAttribute("title", "Welcome");
+        getAdminFromSession(request.getSession());
+        return "admin/index";
+    }
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String signup(Model model) {
@@ -56,7 +56,7 @@ public class AdminController extends AbstractController {
         adminDao.save(newAdmin);
         setAdminInSession(request.getSession(), newAdmin);
 
-        return "/admin/index";
+        return "redirect:/admin/index";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -83,7 +83,7 @@ public class AdminController extends AbstractController {
 
         setAdminInSession(request.getSession(), admin);
 
-        return "/admin/index";
+        return "redirect:/admin/index";
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
