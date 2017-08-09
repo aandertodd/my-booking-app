@@ -18,3 +18,13 @@ nav {
     position:absolute;
     top:5px;
     left: 10px;}
+
+.heading{
+    font-family: helvetica;
+}
+span{
+    font-family: bazooka, comic sans ms;
+}
+.error{
+    color: red;
+    }

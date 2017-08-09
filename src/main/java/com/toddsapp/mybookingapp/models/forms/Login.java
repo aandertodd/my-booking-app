@@ -9,11 +9,11 @@ import javax.validation.constraints.Pattern;
 public class Login {
 
     @NotNull
-    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,9}", message = "Admin Names must be between 5 and 10 characters, start with a letter, and contain only letters and numbers")
+    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,20}", message = "Admin Names must be at least 5 characters, start with a letter, and contain only letters and numbers")
     private String adminName;
 
     @NotNull
-    @Pattern(regexp = "(\\S){4,20}", message = "Password must have 4-20 non-whitespace characters")
+    @Pattern(regexp = "(\\S){4,15}", message = "Password must be 4-15 non-whitespace characters")
     private String password;
 
     public Login() {}

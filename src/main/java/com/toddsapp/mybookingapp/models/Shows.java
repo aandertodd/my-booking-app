@@ -33,6 +33,8 @@ public class Shows {
         this.description = description;
     }
 
+    public Boolean isApproved;
+
     public Shows(){}
 
     public int getId() {
@@ -62,4 +64,8 @@ public class Shows {
     public void setVenue(Venue venue) { this.venue = venue; }
 
     public Venue getVenue() { return venue;}
+
+    public Boolean getApproved() {
+        return isApproved;
+    }
 }

@@ -21,6 +21,10 @@ public class Venue {
     @Size(min=3, max=15)
     private String name;
 
+    @NotNull
+    @Size(min=3, max=50)
+    private String location;
+
     @OneToMany
     @JoinColumn(name = "venue_id")
     private List<Shows> shows = new ArrayList<>();
@@ -41,6 +45,15 @@ public class Venue {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public List<Shows> getShows(){

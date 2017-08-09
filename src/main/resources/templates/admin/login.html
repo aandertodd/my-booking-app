@@ -4,16 +4,16 @@
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav><br/>
 
-<form method="post" style="width: 250px" th:object="${login}">
+<form method="post" th:object="${login}">
     <label th:for="adminName">Admin Name</label>
-    <input class="form-control" th:field="*{adminName}"/>
-    <div class="error" th:errors="*{adminName}"></div>
+    <input style="width: 300px" class="form-control" th:field="*{adminName}"/>
+    <span class="error" th:errors="*{adminName}"></span><br/>
 
     <label th:for="password">Password</label>
-    <input class="form-control" th:field="*{password}" type="password" />
-    <span class="error" th:errors="*{password}"></span>
+    <input style="width: 300px" class="form-control" th:field="*{password}" type="password" />
+    <span class="error" th:errors="*{password}"></span><br/>
     <input type="submit" value="Login" />
 </form>
 </body>

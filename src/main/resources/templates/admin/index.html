@@ -8,5 +8,22 @@
 <div th:if="${admin}">
 <h2>Welcome, <span th:text="${admin.adminName}"></span></h2>
 </div>
+<div class="heading">Unapproved Shows</div>
+<p th:unless="${shows} and ${shows.size()}">No Shows</p>
+
+<table class="table table-hover">
+    <tr>
+        <th>Venue</th>
+        <th>Show</th>
+        <th>Description</th>
+
+    </tr>
+
+    <tr th:each="show : ${shows}" th:unless="${shows == null}" >
+        <td th:text="${show.venue.name}"></td>
+        <td th:text="${show.description}"></td>
+        <td th:text="${show.name}"></td>
+    </tr>
+</table>
 </body>
 </html>

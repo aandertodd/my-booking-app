@@ -25,7 +25,9 @@ public class AdminController extends AbstractController {
     @RequestMapping(value="index")
     public String index(Model model, HttpServletRequest request){
         model.addAttribute("title", "Home");
+        model.addAttribute("shows", showsDao.findAll());
         getAdminFromSession(request.getSession());
+
         return "admin/index";
     }
 
@@ -67,9 +69,10 @@ public class AdminController extends AbstractController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@ModelAttribute @Valid Login form, Errors errors, HttpServletRequest request) {
+    public String login(Model model, @ModelAttribute @Valid Login form, Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Log In");
             return "admin/login";
         }
 
