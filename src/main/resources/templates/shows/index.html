@@ -16,14 +16,15 @@
 
 <table class="table">
     <tr>
-        <th>Venue</th>
+        <th>Show Name</th>
         <th>Bands</th>
+        <th>Venue</th>
     </tr>
 
         <tr th:each="show : ${shows}" th:unless="${shows == null}" >
             <td th:text="${show.name}"></td>
             <td th:text="${show.description}"></td>
-            <td th:text="${show.venue}"></td>
+            <td th:text="${show.venue.name}"></td>
     </tr>
 </table>
 </body>

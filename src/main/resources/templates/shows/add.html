@@ -13,7 +13,10 @@
                 th:text="${venue.name}"
                 th:value="${venue.id}"></option>
     </select>
+    <br/>
 
+    <label th:for="name">Show Name</label>
+    <input th:field="*{name}"/>
     <span th:errors="*{name}" class="error"></span><br/>
     <label th:for="description">Bands Playing</label><br/>
     <textarea class="form-control" th:field="*{description}"></textarea>
