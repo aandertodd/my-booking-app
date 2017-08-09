@@ -4,27 +4,27 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation">
-
-
-</nav>
+<nav th:replace="fragments :: navigation"></nav><br/>
+<div>
 <a href="/shows/add">Add Show</a>
+</div>
 <div th:if="${admin}">
 <a href="/shows/delete">Delete Show</a>
 </div>
 <p th:unless="${shows} and ${shows.size()}">No Shows</p>
 
-<table class="table">
+<table class="table table-hover">
     <tr>
-        <th>Show Name</th>
-        <th>Bands</th>
         <th>Venue</th>
+        <th>Show</th>
+        <th>Description</th>
+
     </tr>
 
         <tr th:each="show : ${shows}" th:unless="${shows == null}" >
-            <td th:text="${show.name}"></td>
-            <td th:text="${show.description}"></td>
             <td th:text="${show.venue.name}"></td>
+            <td th:text="${show.description}"></td>
+            <td th:text="${show.name}"></td>
     </tr>
 </table>
 </body>

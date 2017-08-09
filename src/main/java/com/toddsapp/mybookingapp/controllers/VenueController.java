@@ -27,7 +27,7 @@ public class VenueController extends ShowsController {
 
     @RequestMapping(value="")
     public String index(Model model){
-        model.addAttribute("venues", "venue");
+        model.addAttribute("venues", "venues");
         model.addAttribute("venues", venueDao.findAll());
         return "venue/index";
     }

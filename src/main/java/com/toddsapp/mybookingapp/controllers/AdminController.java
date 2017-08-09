@@ -24,7 +24,7 @@ public class AdminController extends AbstractController {
 
     @RequestMapping(value="index")
     public String index(Model model, HttpServletRequest request){
-        model.addAttribute("title", "Welcome");
+        model.addAttribute("title", "Home");
         getAdminFromSession(request.getSession());
         return "admin/index";
     }

@@ -3,16 +3,18 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title th:text="${title}">Default Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--th:href necessary to link internal css file :)-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/Users/margareticloud/lc101/my-booking-app/src/main/resources/static/CSS/style.css"/>
 </head>
 <body>
-
 <nav th:fragment="navigation">
-    <div th:if="!${admin}">
+    <div class="topcorner" th:if="!${admin}">
         <a href="/admin/login">Login</a>
         <a href="/admin/signup">| Sign up</a>
     </div>
-    <div th:if="${admin}">
-        <span th:text="${admin.adminName}"></span>
+    <div class="topcorner" th:if="${admin}">
+        <a href="/admin/index"><span th:text="${admin.adminName}"></span></a>
         <a href="/admin/logout">Log out</a>
     </div>
     <div>

@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container">
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" th:object="${login}">
+<form method="post" style="width: 250px" th:object="${login}">
     <label th:for="adminName">Admin Name</label>
     <input class="form-control" th:field="*{adminName}"/>
     <div class="error" th:errors="*{adminName}"></div>

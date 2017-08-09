@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head">
 </head>
 
-<body>
+<body class="container">
 <nav th:replace="fragments :: navigation"></nav>
 <ul>
     <li th:each="show : ${shows}" th:text="${show.name}">

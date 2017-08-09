@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container">
 <h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav><br/>
 
 <div th:if="${admin}">
-<h1>Welcome, <span th:text="${admin.adminName}"></span></h1>
+<h2>Welcome, <span th:text="${admin.adminName}"></span></h2>
 </div>
 </body>
 </html>

@@ -3,14 +3,15 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<h1 th:text="Venue">Default Title</h1>
+<h1 th:text="Venues">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav><br/>
+<a href="venue/new">New Venue</a>
 
 <ul>
     <li th:each="venue : ${venues}" th:text="${venue.name}"></li>
 </ul>
-<a href="venue/new">New Venue</a>
+
 
 </body>
 </html>

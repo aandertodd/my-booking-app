@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 public class Login {
 
     @NotNull
-    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,11}", message = "Admin Names must be between 5 and 12 characters, start with a letter, and contain only letters and numbers")
+    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,9}", message = "Admin Names must be between 5 and 10 characters, start with a letter, and contain only letters and numbers")
     private String adminName;
 
     @NotNull
