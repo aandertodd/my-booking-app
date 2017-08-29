@@ -13,7 +13,7 @@
 </div>
 <p th:unless="${shows} and ${shows.size()}">No Shows</p>
 
-<table class="table table-hover">
+<table th:if="${shows}" class="table table-hover">
     <tr>
         <th>Venue</th>
         <th>Show</th>
@@ -27,5 +27,6 @@
             <td th:text="${show.name}"></td>
     </tr>
 </table>
+
 </body>
 </html>

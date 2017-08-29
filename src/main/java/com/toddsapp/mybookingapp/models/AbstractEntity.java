@@ -7,6 +7,8 @@ package com.toddsapp.mybookingapp.models;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.ConstraintValidator;
+import javax.validation.Valid;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -14,7 +16,6 @@ public abstract class AbstractEntity {
     @Id
     @GeneratedValue
     private int aid;
-
     public int getAid() {
         return this.aid;
     }

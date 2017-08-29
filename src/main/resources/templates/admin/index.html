@@ -5,12 +5,8 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav><br/>
 
-<div th:if="${admin}">
-<h2>Welcome, <span th:text="${admin.adminName}"></span></h2>
-</div>
-<div class="heading">Unapproved Shows</div>
 <p th:unless="${shows} and ${shows.size()}">No Shows</p>
-
+<div th:if="${shows} and ${shows.size()}">
 <table class="table table-hover">
     <tr>
         <th>Venue</th>
@@ -23,7 +19,20 @@
         <td th:text="${show.venue.name}"></td>
         <td th:text="${show.description}"></td>
         <td th:text="${show.name}"></td>
+
+
+            <td th:each="show : ${shows}">
+                <form action="index" method = "post">
+                <input type="hidden" name="ids" th:value="${show.id}"  />
+                    <!--<input type="submit" value="Delete"/>-->
+                    <input type="submit" value="Approve" name="add" />
+                </form>
+            </td>
+
     </tr>
 </table>
+</div>
+
+
 </body>
 </html>

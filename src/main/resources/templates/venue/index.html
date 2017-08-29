@@ -13,11 +13,12 @@
         <th>Venue Name</th>
         <th>Location</th>
     </tr>
+    <tbody>
         <tr th:each="venue : ${venues}">
             <td th:text="${venue.name}"></td>
             <td th:text="${venue.location}"></td>
     </tr>
-
+    </tbody>
 </table>
 </body>
 </html>

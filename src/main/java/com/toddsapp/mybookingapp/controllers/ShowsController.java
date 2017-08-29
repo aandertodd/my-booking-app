@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -35,9 +33,12 @@ public class ShowsController extends AbstractController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
-
-        model.addAttribute("shows", showsDao.findAll());
         model.addAttribute("title", "All Shows");
+
+        if (isApproved().equals(true)){
+            model.addAttribute("shows", showsDao.findAll());
+        }
+
         return "shows/index";
     }
 
@@ -66,24 +67,14 @@ public class ShowsController extends AbstractController {
         return "redirect:/shows";
     }
 
-    @RequestMapping(value = "delete")
-    public String displayDeleteShow(Model model, HttpSession session) {
-
-        model.addAttribute("shows", showsDao.findAll());
-        model.addAttribute("title", "Delete Show");
-
-        return "shows/delete";
-    }
-
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
-    public String deleteShow(@RequestParam int[] ids) {
-
-        for (int id : ids) {
-            showsDao.delete(id);
-        }
-
-        return "redirect:";
-    }
+//    @RequestMapping(value = "delete")
+//    public String displayDeleteShow(Model model, HttpSession session) {
+//
+//        model.addAttribute("shows", showsDao.findAll());
+//        model.addAttribute("title", "Delete Show");
+//
+//        return "shows/delete";
+//    }
 
     @RequestMapping(value = "venue", method = RequestMethod.GET)
     public String venue(Model model, @RequestParam int id) {

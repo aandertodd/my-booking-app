@@ -1,7 +1,6 @@
-
 body {
-    color: blue;
-    background-color: #00ff00;
+    color: #FFFFFF;
+    background-color: #000000;
     font-family: Aerial;
     margin-top:10px;
 }
@@ -14,11 +13,14 @@ nav {
   margin-right: 10px;
 
 }
-.topcorner{
+.top-left-corner{
     position:absolute;
     top:5px;
     left: 10px;}
-
+.top-right-corner{
+    position:absolute;
+    top:5px;
+    right:10px;}
 .heading{
     font-family: helvetica;
 }
@@ -28,3 +30,8 @@ span{
 .error{
     color: red;
     }
+tr:hover td{
+    background: green;}
+
+th {
+    background: black;}

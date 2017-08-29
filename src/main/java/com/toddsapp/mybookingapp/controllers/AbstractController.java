@@ -25,6 +25,9 @@ public abstract class AbstractController {
     @Autowired
     protected ShowsDao showsDao;
 
+    public Boolean isApproved(){
+        return false;}
+
     public static final String adminSessionKey = "admin_id";
 
     protected Admin getAdminFromSession(HttpSession session) {

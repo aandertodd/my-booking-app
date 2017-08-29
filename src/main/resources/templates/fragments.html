@@ -9,15 +9,20 @@
 </head>
 <body>
 <nav th:fragment="navigation">
-    <div class="topcorner" th:if="!${admin}">
+    <div class="top-right-corner" th:if="!${admin}">
         <a href="/admin/login">Login</a>
         <a href="/admin/signup">| Sign up</a>
     </div>
-    <div class="topcorner" th:if="${admin}">
-        <a href="/admin/index"><span th:text="${admin.adminName}"></span></a>
+    <div class="top-left-corner" th:if="${admin}">
+        <p><span th:text="'Welcome, ' + ${admin.adminName}"></span></p>
+    </div>
+    <div class="top-right-corner" th:if="${admin}">
+        <a href="/admin/index">Unapproved Shows</a> ||
         <a href="/admin/logout">Log out</a>
+
     </div>
     <div>
+
         <a href="/shows">Shows |</a>
         <a href="/venue">Venues</a>
     </div>

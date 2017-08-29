@@ -4,17 +4,15 @@ package com.toddsapp.mybookingapp.controllers;
  * Created by margareticloud on 7/28/17.
  */
 
+
 import com.toddsapp.mybookingapp.models.Admin;
+import com.toddsapp.mybookingapp.models.Shows;
 import com.toddsapp.mybookingapp.models.forms.Login;
 import com.toddsapp.mybookingapp.models.forms.Signup;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -24,12 +22,25 @@ public class AdminController extends AbstractController {
 
     @RequestMapping(value="index")
     public String index(Model model, HttpServletRequest request){
-        model.addAttribute("title", "Home");
+        model.addAttribute("title", "Unapproved Shows");
         model.addAttribute("shows", showsDao.findAll());
         getAdminFromSession(request.getSession());
 
         return "admin/index";
     }
+
+    @RequestMapping(value = "index", method = RequestMethod.POST)
+    public String index(@RequestParam int[] ids){
+
+        for (int id : ids) {
+            showsDao.delete(id);
+
+        }
+
+        return "redirect:/shows";
+    }
+
+
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String signup(Model model) {
