@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Shows {
 
+    // creates table for id, name, description, venue
     @Id
     @GeneratedValue
     private int id;

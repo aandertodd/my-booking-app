@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<form method="post" style="max-width:200px;" th:object="${venue}">
+    <label th:for="venue">Venue Name</label>
+    <input class="form-control" th:field="*{name}" />
+    <span th:errors="*{name}" class="error"></span>
+    <label th:for="venue">Location</label>
+    <input class="form-control" th:field="*{location}" />
+    <span th:errors="*{location}" class="error"></span>
+    <input type="submit" value="Add Venue" />
+</form>
+
+</body>
+</html>

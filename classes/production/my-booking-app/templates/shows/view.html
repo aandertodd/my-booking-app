@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+
+<body class="container">
+<nav th:replace="fragments :: navigation"></nav>
+<ul>
+    <li th:each="show : ${shows}" th:text="${show.name}">
+        <a th:href="'/shows/view/' + ${show.id}" th:text="${show.name}"></a>
+    </li>
+</ul>
+</body>
+</html>

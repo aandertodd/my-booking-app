@@ -22,14 +22,14 @@ import java.util.List;
 @RequestMapping("shows")
 public class ShowsController extends AbstractController {
 
-    @Autowired
-    private AdminDao adminDao;
-
-    @Autowired
-    private ShowsDao showsDao;
-
-    @Autowired
-    private VenueDao venueDao;
+//    @Autowired
+//    private AdminDao adminDao;
+//
+//    @Autowired
+//    private ShowsDao showsDao;
+//
+//    @Autowired
+//    private VenueDao venueDao;
 
     @RequestMapping(value = "")
     public String index(Model model) {

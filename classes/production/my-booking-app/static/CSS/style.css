@@ -1,0 +1,37 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000;
+    font-family: Aerial;
+    margin-top:10px;
+}
+nav {
+  width: 150px;
+  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+
+}
+.top-left-corner{
+    position:absolute;
+    top:5px;
+    left: 10px;}
+.top-right-corner{
+    position:absolute;
+    top:5px;
+    right:10px;}
+.heading{
+    font-family: helvetica;
+}
+span{
+    font-family: bazooka, comic sans ms;
+}
+.error{
+    color: red;
+    }
+tr:hover td{
+    background: green;}
+
+th {
+    background: black;}

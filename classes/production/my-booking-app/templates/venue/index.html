@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="Venues">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav><br/>
+<a href="venue/new">New Venue</a>
+
+<table class="table table-hover">
+    <tr>
+        <th>Venue Name</th>
+        <th>Location</th>
+    </tr>
+    <tbody>
+        <tr th:each="venue : ${venues}">
+            <td th:text="${venue.name}"></td>
+            <td th:text="${venue.location}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

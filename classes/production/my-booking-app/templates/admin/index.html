@@ -19,16 +19,15 @@
         <td th:text="${show.venue.name}"></td>
         <td th:text="${show.description}"></td>
         <td th:text="${show.name}"></td>
-    <td>
 
+            <td th:each="show : ${shows}">
                 <form action="index" method="post">
                 <input type="hidden" name="ids" th:value="${show.id}"  />
                     <input type="submit" value="Delete" />
                 </form>
+            </td>
 
-    </td>
     </tr>
-
 </table>
 </div>
 

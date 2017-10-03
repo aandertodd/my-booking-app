@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Default Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!--th:href necessary to link internal css file :)-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/Users/margareticloud/lc101/my-booking-app/src/main/resources/static/CSS/style.css"/>
+</head>
+<body>
+<nav th:fragment="navigation">
+    <div class="top-right-corner" th:if="!${admin}">
+        <a href="/admin/login">Login</a>
+        <a href="/admin/signup">| Sign up</a>
+    </div>
+    <div class="top-left-corner" th:if="${admin}">
+        <p><span th:text="'Welcome, ' + ${admin.adminName}"></span></p>
+    </div>
+    <div class="top-right-corner" th:if="${admin}">
+        <a href="/admin/index">Manage Shows</a> ||
+        <a href="/admin/venues">Manage Venues</a> ||
+        <a href="/admin/logout">Log out</a>
+
+    </div>
+    <div>
+
+        <a href="/shows">Shows |</a>
+        <a href="/venue">Venues</a>
+    </div>
+</nav>
+
+</body>
+</html>
