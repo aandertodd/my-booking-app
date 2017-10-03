@@ -8,9 +8,7 @@
 <div>
 <a href="/shows/add">Add Show</a>
 </div>
-<div th:if="${admin}">
-<a href="/shows/delete">Delete Show</a>
-</div>
+
 <p th:unless="${shows} and ${shows.size()}">No Shows</p>
 
 <table th:if="${shows}" class="table table-hover">

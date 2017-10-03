@@ -33,11 +33,9 @@ public class ShowsController extends AbstractController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
+        
         model.addAttribute("title", "All Shows");
-
-        if (isApproved().equals(true)){
-            model.addAttribute("shows", showsDao.findAll());
-        }
+        model.addAttribute("shows", showsDao.findAll());
 
         return "shows/index";
     }

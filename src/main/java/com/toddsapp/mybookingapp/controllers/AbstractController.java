@@ -8,6 +8,7 @@ package com.toddsapp.mybookingapp.controllers;
 import com.toddsapp.mybookingapp.models.Admin;
 import com.toddsapp.mybookingapp.models.data.AdminDao;
 import com.toddsapp.mybookingapp.models.data.ShowsDao;
+import com.toddsapp.mybookingapp.models.data.VenueDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 //import com.toddsapp.mybookingapp.models.data.AbstractEntity;
@@ -24,6 +25,9 @@ public abstract class AbstractController {
 
     @Autowired
     protected ShowsDao showsDao;
+
+    @Autowired
+    protected VenueDao venueDao;
 
     public Boolean isApproved(){
         return false;}

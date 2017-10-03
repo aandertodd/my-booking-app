@@ -20,12 +20,10 @@
         <td th:text="${show.description}"></td>
         <td th:text="${show.name}"></td>
 
-
             <td th:each="show : ${shows}">
-                <form action="index" method = "post">
+                <form action="index" method="post">
                 <input type="hidden" name="ids" th:value="${show.id}"  />
-                    <!--<input type="submit" value="Delete"/>-->
-                    <input type="submit" value="Approve" name="add" />
+                    <input type="submit" value="Delete" />
                 </form>
             </td>
 
