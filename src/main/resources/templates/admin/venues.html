@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${venue} and ${venue.size()}">No Venues</p>
+<table class="table table-hover">
+    <tr>
+        <th>Venue Name</th>
+        <th>Location</th>
+    </tr>
+    <tbody>
+    <tr th:each="venue : ${venues}">
+        <td th:text="${venue.name}"></td>
+        <td th:text="${venue.location}"></td>
+
+    <td>
+
+        <form method="post">
+            <input type="hidden" name="ids" th:value="${venue.id}"  />
+            <input type="submit" value="Delete" />
+        </form>
+    </td>
+    </tr>
+    </tbody>
+
+
+    </table>
+
+</body>
+</html>

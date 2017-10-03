@@ -22,20 +22,34 @@ public class AdminController extends AbstractController {
 
     @RequestMapping(value="index")
     public String index(Model model, HttpServletRequest request){
-        model.addAttribute("title", "Unapproved Shows");
+        model.addAttribute("title", "Manage Shows");
         model.addAttribute("shows", showsDao.findAll());
         getAdminFromSession(request.getSession());
 
         return "admin/index";
     }
 
-    @RequestMapping(value = "index", method = RequestMethod.POST)
+    @RequestMapping(value="index", method = RequestMethod.POST)
     public String index(@RequestParam int[] ids){
 
         for (int id : ids) {
-            showsDao.delete(id);
+            showsDao.delete(id);}
+        return "admin/index";
+    }
 
-        }
+    @RequestMapping(value="venues")
+    public String venues(Model model, HttpServletRequest request){
+        model.addAttribute("title", "Manage Venues");
+        model.addAttribute("venues", venueDao.findAll());
+        getAdminFromSession(request.getSession());
+
+        return "admin/venues";
+    }
+    @RequestMapping(value="venues", method = RequestMethod.POST)
+    public String venues(@RequestParam int[] ids){
+
+        for (int id : ids) {
+            venueDao.delete(id);}
 
         return "redirect:/shows";
     }
@@ -82,13 +96,18 @@ public class AdminController extends AbstractController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute @Valid Login form, Errors errors, HttpServletRequest request) {
 
+        Admin admin = adminDao.findByAdminName(form.getAdminName());
+        String password = form.getPassword();
+
         if (errors.hasErrors()) {
             model.addAttribute("title", "Log In");
             return "admin/login";
         }
 
-        Admin admin = adminDao.findByAdminName(form.getAdminName());
-        String password = form.getPassword();
+//        if (admin != form.getAdminName()){
+//            errors.rejectValue("adminName", "adminName.invalid", "Not a registered admin name");
+//            return "admin/login";
+//        }
 
         if (!admin.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Wrong password");

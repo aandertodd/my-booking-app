@@ -17,7 +17,8 @@
         <p><span th:text="'Welcome, ' + ${admin.adminName}"></span></p>
     </div>
     <div class="top-right-corner" th:if="${admin}">
-        <a href="/admin/index">Unapproved Shows</a> ||
+        <a href="/admin/index">Manage Shows</a> ||
+        <a href="/admin/venues">Manage Venues</a> ||
         <a href="/admin/logout">Log out</a>
 
     </div>
