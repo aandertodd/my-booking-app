@@ -6,7 +6,6 @@ package com.toddsapp.mybookingapp.controllers;
 
 
 import com.toddsapp.mybookingapp.models.Admin;
-import com.toddsapp.mybookingapp.models.Shows;
 import com.toddsapp.mybookingapp.models.forms.Login;
 import com.toddsapp.mybookingapp.models.forms.Signup;
 import org.springframework.stereotype.Controller;
@@ -34,7 +33,7 @@ public class AdminController extends AbstractController {
 
         for (int id : ids) {
             showsDao.delete(id);}
-        return "admin/index";
+        return "redirect:/admin/index";
     }
 
     @RequestMapping(value="venues")
@@ -51,9 +50,8 @@ public class AdminController extends AbstractController {
         for (int id : ids) {
             venueDao.delete(id);}
 
-        return "redirect:/shows";
+        return "redirect:/admin/venues";
     }
-
 
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
@@ -96,6 +94,7 @@ public class AdminController extends AbstractController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute @Valid Login form, Errors errors, HttpServletRequest request) {
 
+
         Admin admin = adminDao.findByAdminName(form.getAdminName());
         String password = form.getPassword();
 
@@ -103,11 +102,9 @@ public class AdminController extends AbstractController {
             model.addAttribute("title", "Log In");
             return "admin/login";
         }
-
-//        if (admin != form.getAdminName()){
-//            errors.rejectValue("adminName", "adminName.invalid", "Not a registered admin name");
-//            return "admin/login";
-//        }
+//        if (!(admin.equals(form.getAdminName()))){
+//          errors.rejectValue("admin name", "admin.invalid", "Not an existing admin");
+//              return "admin/login";}
 
         if (!admin.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Wrong password");

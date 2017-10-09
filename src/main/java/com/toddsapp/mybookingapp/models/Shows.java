@@ -19,7 +19,7 @@ public class Shows {
     private int id;
 
     @NotNull
-    @Size(min=3, max=50, message="Name must be at least 3 letters")
+    @Size(min=8, max=8, message="Date must be in the format of mm/dd/yy")
     private String name;
 
     @NotNull

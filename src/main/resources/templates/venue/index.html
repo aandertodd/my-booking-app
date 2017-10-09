@@ -7,7 +7,8 @@
 
 <nav th:replace="fragments :: navigation"></nav><br/>
 <a href="venue/new">New Venue</a>
-
+<p th:unless="${venues} and ${venues.size()}">No Venues</p>
+<div th:if="${venues} and ${venues.size()}">
 <table class="table table-hover">
     <tr>
         <th>Venue Name</th>
@@ -20,5 +21,6 @@
     </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>

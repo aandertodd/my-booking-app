@@ -22,15 +22,6 @@ import java.util.List;
 @RequestMapping("shows")
 public class ShowsController extends AbstractController {
 
-//    @Autowired
-//    private AdminDao adminDao;
-//
-//    @Autowired
-//    private ShowsDao showsDao;
-//
-//    @Autowired
-//    private VenueDao venueDao;
-
     @RequestMapping(value = "")
     public String index(Model model) {
         
@@ -64,15 +55,6 @@ public class ShowsController extends AbstractController {
         showsDao.save(newShow);
         return "redirect:/shows";
     }
-
-//    @RequestMapping(value = "delete")
-//    public String displayDeleteShow(Model model, HttpSession session) {
-//
-//        model.addAttribute("shows", showsDao.findAll());
-//        model.addAttribute("title", "Delete Show");
-//
-//        return "shows/delete";
-//    }
 
     @RequestMapping(value = "venue", method = RequestMethod.GET)
     public String venue(Model model, @RequestParam int id) {

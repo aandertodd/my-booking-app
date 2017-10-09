@@ -10,7 +10,8 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<form method="post" style="max-width:200px;" th:object="${venue}">
+<form method="post" style="max-width:225px;" th:object="${venue}">
+
     <label th:for="venue">Venue Name</label>
     <input class="form-control" th:field="*{name}" />
     <span th:errors="*{name}" class="error"></span>

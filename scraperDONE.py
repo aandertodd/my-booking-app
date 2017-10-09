@@ -20,7 +20,7 @@ date = soup.select("h3.date")
 #creates list data of html elements as well as the venue id
 data = []
 for i in range(len(bands)):
-	data.append([date[i].get_text(), bands[i].get_text(), 1])
+	data.append([bands[i].get_text(), date[i].get_text(), 1])
 print(data)
 
 #creates and writes csv from data list
